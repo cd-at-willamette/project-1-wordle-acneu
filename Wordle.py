@@ -13,8 +13,9 @@ import random
 def wordle():
     # The main function to play the Wordle game.
 
+
+#milestone 1
     def enter_action():
-        correct_word = 'glass'
         row_number = gw.get_current_row()
         string = "" #empty string to add letters to it
         for i in range(N_COLS): #creating a loop
@@ -26,6 +27,7 @@ def wordle():
             gw.show_message("Not in word list, sorry!") #if the word entered is not in the word list
         # What should happen when RETURN/ENTER is pressed.
 
+#milestone 2
         def color_guess(guess, correct):
             letters_left = guess
             gw.set_square_color(0,0, CORRECT_COLOR)
@@ -38,9 +40,19 @@ def wordle():
                      gw.set_square_color(row_number, i, MISSING_COLOR)
         color_guess(string.lower(), correct_word)
 
+#milestone 3
+    def find_random_word():
+        random_word = ""
+        while len(random_word) != 5:
+            random_word = random.choice(ENGLISH_WORDS)
+        return(random_word)
+
+    correct_word = find_random_word()
+    print(correct_word)
+
+
             
 
-#lst = list(english_word)
 
     gw = WordleGWindow()
     gw.add_enter_listener(enter_action)
