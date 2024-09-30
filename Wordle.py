@@ -51,7 +51,7 @@ def wordle():
                 current = current + 1
                 gw.set_current_row(current)
             elif current == N_ROWS - 1:
-                gw.show_message("Sorry, you lose")
+                gw.show_message(f"You lose... The correct word is {correct_word}")
         else:
             gw.show_message("You win!")
 # Making the keys of the wordle correspond to the wordle squares
@@ -67,6 +67,7 @@ def wordle():
             else:
                 if gw.get_key_color(letter) == UNKNOWN_COLOR:
                     gw.set_key_color(letter, MISSING_COLOR)
+
 
     gw = WordleGWindow()
     gw.add_enter_listener(enter_action)
